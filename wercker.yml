@@ -66,17 +66,8 @@ deploy:
     - internal/docker-push:
       username: $DOCKER_USERNAME
       password: $DOCKER_PASSWORD
-      cmd: /pipeline/source/hello
+      cmd: /pipeline/source/some-go-app
       port: "8080"
       tag: latest
       repository: imcgonigle/some-go-app
       registry: https://registry.hub.docker.com
-
-    - cng/cg-deploy:
-      api: $API
-      user: $USER
-      password: $PASSWORD
-      org: $ORG
-      space: $SPACE
-      appname: wercker-step-hello
-      docker_image: imcgonigle/some-go-app
