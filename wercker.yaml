@@ -7,7 +7,7 @@ box: golang
 
 dev:
   steps:
-    - setup-go-workspace
+    - setup-go-workspace:
       package-dir: github.com/imcgonigle/some-go-app
 
     - script:
@@ -29,7 +29,7 @@ dev:
   
   build:
     steps:
-      - setup-go-workspace
+      - setup-go-workspace:
         package-dir: github.com/imcgonigle/some-go-app
 
       - script:
