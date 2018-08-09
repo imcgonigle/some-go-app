@@ -3,7 +3,10 @@
 # If you want Google's container you would reference google/golang
 # Read more about containers on our dev center
 # https://devcenter.wercker.com/overview-and-core-concepts/containers/
-box: golang
+box:
+  id: golang
+  ports: 
+    - "8000"
 
 dev:
   steps:
@@ -20,7 +23,7 @@ dev:
         cd $WERCKER_SOURCE_DIR
         go version
         go get -u github.com/Masterminds/glide
-        exort PATH=$WERCKER_SOURCE_DIR/bin:$PATH
+        export PATH=$WERCKER_SOURCE_DIR/bin:$PATH
         glide install
 
     - internal/watch:
@@ -43,6 +46,7 @@ build:
         go version
         go get -u github.com/Masterminds/glide
         export PATH=$WERCKER_SOURCE_DIR/bin:$PATH
+        glide install
     
     # Build the project
     - script:
