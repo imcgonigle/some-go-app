@@ -1,0 +1,3 @@
+package: github.com/imcgonigle/some-go-app
+import:
+- package: github.com/gorilla/mux
